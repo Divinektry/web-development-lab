@@ -1,0 +1,300 @@
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 20px;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background-color: #f2f5fa;
+    color: #333;
+    line-height: 1.6;
+    overflow-wrap: break-word;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+
+header {
+    background-color: #315da8;
+    color: white;
+    text-align: center;
+    padding: 28px 16px;
+}
+
+header h1 {
+    margin: 0 0 8px;
+    font-size: 28px;
+}
+
+header p {
+    margin: 0;
+    font-size: 16px;
+}
+
+nav {
+    background-color: #24477f;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 4px;
+    padding: 10px 16px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    text-align: center;
+    padding: 10px 14px;
+    border-radius: 6px;
+    transition: background-color 0.2s;
+}
+
+nav a:hover,
+nav a:focus-visible {
+    background-color: #315da8;
+    color: #ffeb70;
+}
+
+main {
+    width: 100%;
+    max-width: 1100px;
+    margin: 24px auto;
+    padding: 0 16px;
+}
+
+section {
+    scroll-margin-top: 20px;
+}
+
+h2 {
+    color: #315da8;
+    margin-top: 0;
+}
+
+.intro {
+    background-color: white;
+    padding: 24px 20px;
+    border-radius: 12px;
+    margin-bottom: 32px;
+    border-left: 5px solid #315da8;
+}
+
+.intro h2 {
+    font-size: 26px;
+}
+
+.intro p {
+    margin-bottom: 22px;
+}
+
+.main-button {
+    display: inline-block;
+    background-color: #315da8;
+    color: white;
+    text-decoration: none;
+    padding: 12px 20px;
+    border-radius: 7px;
+    font-weight: bold;
+}
+
+.main-button:hover,
+.main-button:focus-visible {
+    background-color: #24477f;
+}
+
+
+
+#lessons {
+    margin-bottom: 32px;
+}
+
+.section-description {
+    color: #666;
+    margin-top: -8px;
+    margin-bottom: 20px;
+}
+
+.lesson-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+}
+
+.lesson {
+    min-width: 0;
+    background-color: white;
+    padding: 22px;
+    border-radius: 12px;
+    border: 1px solid #e0e5ee;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.04);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.lesson:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+}
+
+.lesson-icon {
+    font-size: 32px;
+    margin-bottom: 8px;
+}
+
+.lesson h3 {
+    color: #315da8;
+    margin: 0 0 10px;
+    font-size: 21px;
+}
+
+.lesson p {
+    margin: 0 0 18px;
+}
+
+.lesson a {
+    display: inline-block;
+    color: #315da8;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.lesson a:hover,
+.lesson a:focus-visible {
+    text-decoration: underline;
+}
+
+/* ===== 7. Суралцах зөвлөгөө ===== */
+
+.about {
+    background-color: white;
+    padding: 24px 20px;
+    margin: 28px 0;
+    border-radius: 12px;
+}
+
+.about p {
+    margin-bottom: 0;
+}
+
+/* ===== 8. Footer ===== */
+
+footer {
+    background-color: #24477f;
+    color: white;
+    text-align: center;
+    padding: 20px 16px;
+}
+
+footer p {
+    margin: 4px 0;
+    font-size: 14px;
+}
+
+/* ===== 9. TABLET: 600px-аас дээш ===== */
+
+@media (min-width: 600px) {
+
+    header {
+        padding: 36px 24px;
+    }
+
+    header h1 {
+        font-size: 34px;
+    }
+
+    nav {
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+        padding: 12px 16px;
+    }
+
+    nav a {
+        padding: 10px 18px;
+    }
+
+    main {
+        width: 92%;
+        padding: 0;
+        margin: 32px auto;
+    }
+
+    .intro {
+        padding: 32px;
+    }
+
+    .lesson-container {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 20px;
+    }
+
+    .about {
+        padding: 28px;
+    }
+}
+
+/* ===== 10. DESKTOP: 1024px-аас дээш ===== */
+
+@media (min-width: 1024px) {
+
+    header {
+        padding: 42px 24px;
+    }
+
+    header h1 {
+        font-size: 38px;
+    }
+
+    main {
+        max-width: 1100px;
+        margin: 40px auto;
+    }
+
+    .intro {
+        padding: 36px;
+    }
+
+    .lesson-container {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 20px;
+    }
+
+    .lesson {
+        padding: 24px;
+    }
+}
+
+/* ===== 11. Жижиг гар утас ===== */
+
+@media (max-width: 360px) {
+
+    header h1 {
+        font-size: 23px;
+    }
+
+    header p {
+        font-size: 14px;
+    }
+
+    main {
+        padding: 0 12px;
+    }
+
+    .intro,
+    .lesson,
+    .about {
+        padding: 16px;
+    }
+
+    .intro h2 {
+        font-size: 22px;
+    }
+}
