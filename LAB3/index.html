@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="mn">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Лаборатори 02 - Хэрэглэгчийн анкет</title>
+    
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header class="main-header">
+        <h1>Оюутны Бүртгэлийн Портал</h1>
+        <p class="subtitle">Лаборатори 02 - Хэрэглэгчийн анкет</p>
+    </header>
+
+    <nav class="main-nav">
+        <a href="../index.html" class="nav-link">Нүүр</a>
+        <a href="#form" class="nav-link">Анкет</a>
+        <a href="#interests" class="nav-link">Сонирхол</a>
+        <a href="#grades" class="nav-link">Дүн</a>
+    </nav>
+
+    <main class="container">
+
+        <article id="form" class="card form-card">
+            <!-- Position absolute ашигласан Badge жишээ -->
+            <span class="status-badge">Идэвхтэй анкет</span>
+
+            <h2 class="section-title">Хэрэглэгчийн анкет</h2>
+
+            <form action="#" method="post" enctype="multipart/form-data" class="registration-form">
+
+                <fieldset class="form-section">
+                    <legend class="section-legend">1. Хувийн мэдээлэл</legend>
+
+                    <div class="form-group">
+                        <label for="lastname">Овог:</label>
+                        <input type="text" id="lastname" name="lastname" class="input-control" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="firstname">Нэр:</label>
+                        <input type="text" id="firstname" name="firstname" class="input-control" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="age">Нас:</label>
+                        <input type="number" id="age" name="age" min="1" max="100" class="input-control" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="birthdate">Төрсөн огноо:</label>
+                        <input type="date" id="birthdate" name="birthdate" class="input-control" required>
+                    </div>
+
+                    <div class="form-group radio-group">
+                        <label class="group-label">Хүйс:</label>
+                        <label class="inline-label">
+                            <input type="radio" id="male" name="gender" value="Эрэгтэй" required> Эрэгтэй
+                        </label>
+                        <label class="inline-label">
+                            <input type="radio" id="female" name="gender" value="Эмэгтэй"> Эмэгтэй
+                        </label>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="family">Гэр бүлийн гишүүдийн тоо:</label>
+                        <input type="number" id="family" name="family" min="1" class="input-control" required>
+                    </div>
+                </fieldset>
+
+                <fieldset class="form-section">
+                    <legend class="section-legend">2. Холбоо барих мэдээлэл</legend>
+
+                    <div class="form-group">
+                        <label for="email">И-мэйл:</label>
+                        <input type="email" id="email" name="email" class="input-control" placeholder="example@mail.com" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="password">Нууц үг:</label>
+                        <input type="password" id="password" name="password" minlength="6" class="input-control" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="phone">Утасны дугаар:</label>
+                        <input type="tel" id="phone" name="phone" pattern="[0-9]{8}" placeholder="88112233" class="input-control" required>
+                    </div>
+                </fieldset>
+
+                <fieldset class="form-section">
+                    <legend class="section-legend">3. Боловсрол</legend>
+
+                    <div class="form-group">
+                        <label for="university">Их сургууль:</label>
+                        <input type="text" id="university" name="university" value="Шинжлэх Ухаан, Технологийн Их Сургууль" class="input-control" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="major">Мэргэжил:</label>
+                        <input type="text" id="major" name="major" value="Кибер аюулгүй байдал" class="input-control" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="course">Курс:</label>
+                        <select id="course" name="course" class="input-control select-control" required>
+                            <option value="">Сонгоно уу</option>
+                            <option value="1">1-р курс</option>
+                            <option value="2">2-р курс</option>
+                            <option value="3">3-р курс</option>
+                            <option value="4">4-р курс</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="school">ЕБС:</label>
+                        <input type="text" id="school" name="school" value="Баянхонгор аймгийн Номундалай цогцолбор сургууль" class="input-control" required>
+                    </div>
+                </fieldset>
+
+                <fieldset class="form-section">
+                    <legend class="section-legend">4. Мэргэжлийн сонирхол</legend>
+                    <div class="checkbox-grid">
+                        <label class="checkbox-label"><input type="checkbox" name="interest" value="Cyber Security"> Кибер аюулгүй байдал</label>
+                        <label class="checkbox-label"><input type="checkbox" name="interest" value="Network"> Компьютерийн сүлжээ</label>
+                        <label class="checkbox-label"><input type="checkbox" name="interest" value="Web"> Вэб хөгжүүлэлт</label>
+                        <label class="checkbox-label"><input type="checkbox" name="interest" value="Programming"> Програмчлал</label>
+                        <label class="checkbox-label"><input type="checkbox" name="interest" value="Cryptography"> Криптограф</label>
+                    </div>
+                </fieldset>
+
+                <fieldset class="form-section">
+                    <legend class="section-legend">5. Ур чадвар</legend>
+                    <div class="checkbox-grid">
+                        <label class="checkbox-label"><input type="checkbox" name="skill" value="HTML"> HTML болон вэб хөгжүүлэлт</label>
+                        <label class="checkbox-label"><input type="checkbox" name="skill" value="Python"> Python</label>
+                        <label class="checkbox-label"><input type="checkbox" name="skill" value="Git"> Git / GitHub</label>
+                        <label class="checkbox-label"><input type="checkbox" name="skill" value="Teamwork"> Багаар ажиллах</label>
+                    </div>
+                    <div class="form-group">
+                        <label for="otherSkills">Бусад ур чадвар:</label>
+                        <textarea id="otherSkills" name="otherSkills" minlength="10" rows="3" class="input-control textarea-control"></textarea>
+                    </div>
+                </fieldset>
+
+                <fieldset class="form-section">
+                    <legend class="section-legend">6. Амжилт</legend>
+                    <div class="checkbox-grid">
+                        <label class="checkbox-label"><input type="checkbox" name="achievement" value="Physics"> Физикийн олимпиад - Хүрэл</label>
+                        <label class="checkbox-label"><input type="checkbox" name="achievement" value="Math"> Математикийн олимпиад - Мөнгө</label>
+                        <label class="checkbox-label"><input type="checkbox" name="achievement" value="Kangaroo"> Kangaroo - 3-р зэрэг</label>
+                        <label class="checkbox-label"><input type="checkbox" name="achievement" value="Checkers"> 100 буудалт даам</label>
+                    </div>
+                    <div class="form-group">
+                        <label for="otherAchievement">Бусад амжилт:</label>
+                        <textarea id="otherAchievement" name="otherAchievement" rows="3" class="input-control textarea-control"></textarea>
+                    </div>
+                </fieldset>
+
+                <fieldset class="form-section">
+                    <legend class="section-legend">7. Хобби</legend>
+                    <div class="checkbox-grid">
+                        <label class="checkbox-label"><input type="checkbox" name="hobby" value="Basketball"> Сагсан бөмбөг</label>
+                        <label class="checkbox-label"><input type="checkbox" name="hobby" value="Piano"> Төгөлдөр хуур</label>
+                        <label class="checkbox-label"><input type="checkbox" name="hobby" value="Checkers"> Даам</label>
+                        <label class="checkbox-label"><input type="checkbox" name="hobby" value="Anime"> Анимэ</label>
+                        <label class="checkbox-label"><input type="checkbox" name="hobby" value="Movie"> Кино</label>
+                        <label class="checkbox-label"><input type="checkbox" name="hobby" value="Technology"> Технологи</label>
+                    </div>
+                </fieldset>
+
+                <fieldset class="form-section">
+                    <legend class="section-legend">8. Өөрийн тухай</legend>
+                    
+                    
+                    <div class="form-group relative-container">
+                        <label for="strengths">Өөрийн давуу тал:</label>
+                        <span class="input-tooltip">Дор хаяж 20 тэмдэгт</span>
+                        <textarea id="strengths" name="strengths" minlength="20" rows="4" class="input-control textarea-control" required></textarea>
+                    </div>
+
+                    <div class="form-group relative-container">
+                        <label for="goal">Миний зорилго:</label>
+                        <span class="input-tooltip">Дор хаяж 30 тэмдэгт</span>
+                        <textarea id="goal" name="goal" minlength="30" rows="4" class="input-control textarea-control" required></textarea>
+                    </div>
+                </fieldset>
+
+                <fieldset class="form-section">
+                    <legend class="section-legend">9. Зураг</legend>
+                    <div class="form-group">
+                        <label for="photo">Цээж зураг:</label>
+                        <input type="file" id="photo" name="photo" accept="image/*" class="file-input">
+                    </div>
+                </fieldset>
+
+                <div class="action-buttons">
+                    <button type="submit" class="btn btn-submit">Илгээх</button>
+                    <button type="reset" class="btn btn-reset">Цэвэрлэх</button>
+                </div>
+
+            </form>
+
+        </article>
+
+        <section id="interests" class="card">
+            <h2 class="section-title">Миний сонирхол</h2>
+            <ul class="styled-list">
+                <li>Кибер аюулгүй байдал</li>
+                <li>Програмчлал</li>
+                <li>Компьютерийн технологи</li>
+            </ul>
+        </section>
+
+        <section id="grades" class="card">
+            <h2 class="section-title">Миний дүн</h2>
+            <div class="table-container">
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Хичээл</th>
+                            <th>Кредит</th>
+                            <th>Дүн</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Вэб хөгжүүлэлт</td>
+                            <td>3</td>
+                            <td><span class="grade-badge">A</span></td>
+                        </tr>
+                        <tr>
+                            <td>Криптограф</td>
+                            <td>3</td>
+                            <td><span class="grade-badge">A</span></td>
+                        </tr>
+                        <tr>
+                            <td>Кибер аюулгүй байдал</td>
+                            <td>3</td>
+                            <td><span class="grade-badge">A</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="main-footer">
+        <p>© 2026 Энхболд Золжаргал | Вэб систем ба технологи</p>
+    </footer>
+
+</body>
+
+</html>
