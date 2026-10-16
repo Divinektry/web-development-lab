@@ -4,297 +4,582 @@
 
 html {
     scroll-behavior: smooth;
-    scroll-padding-top: 20px;
 }
 
 body {
+    margin: 0;
     font-family: Arial, sans-serif;
-    margin: 0;
-    background-color: #f2f5fa;
-    color: #333;
-    line-height: 1.6;
-    overflow-wrap: break-word;
+    color: #26344b;
+    background: #f1f5fb;
 }
 
-img {
-    max-width: 100%;
-    height: auto;
+[hidden] {
+    display: none !important;
 }
 
+button,
+a {
+    -webkit-tap-highlight-color: transparent;
+}
 
-header {
-    background-color: #315da8;
-    color: white;
+button {
+    font: inherit;
+    cursor: pointer;
+}
+
+a {
+    overflow-wrap: anywhere;
+}
+
+/* ===== Төхөөрөмж сонгох нүүр ===== */
+
+.welcome {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 32px 20px;
+    background:
+        radial-gradient(
+            circle at top left,
+            #dceaff,
+            transparent 45%
+        ),
+        #f5f8ff;
+}
+
+.welcome-content {
+    width: 100%;
+    max-width: 950px;
     text-align: center;
-    padding: 28px 16px;
 }
 
-header h1 {
-    margin: 0 0 8px;
-    font-size: 28px;
+.logo {
+    display: inline-block;
+    padding: 8px 16px;
+    border-radius: 30px;
+    background: #e2ebff;
+    color: #2859a0;
+    font-size: 13px;
+    font-weight: bold;
+    letter-spacing: 2px;
 }
 
-header p {
-    margin: 0;
-    font-size: 16px;
+.welcome h1 {
+    margin: 22px 0 10px;
+    color: #23477f;
+    font-size: clamp(27px, 5vw, 42px);
 }
 
-nav {
-    background-color: #24477f;
+.welcome-content > p {
+    color: #6a7890;
+    margin-bottom: 32px;
+}
+
+.device-options {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 18px;
+}
+
+.device-card {
     display: flex;
     flex-direction: column;
-    align-items: stretch;
-    gap: 4px;
-    padding: 10px 16px;
+    align-items: center;
+    gap: 10px;
+    padding: 28px 18px;
+    border: 2px solid #e1e8f4;
+    border-radius: 18px;
+    background: white;
+    color: #263f65;
+    box-shadow: 0 8px 24px #254d8210;
+    transition: 0.2s ease;
 }
 
-nav a {
+.device-card:hover,
+.device-card:focus-visible {
+    border-color: #3976d5;
+    transform: translateY(-4px);
+    box-shadow: 0 12px 28px #254d8220;
+}
+
+.device-icon {
+    font-size: 46px;
+}
+
+.device-card strong {
+    font-size: 22px;
+}
+
+.device-card span:not(.device-icon) {
+    color: #526783;
+}
+
+.device-card small {
+    color: #8492a8;
+}
+
+.hint {
+    margin-top: 28px;
+    font-size: 14px;
+}
+
+/* ===== Preview-ийн дээд цэс ===== */
+
+.preview-toolbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+    padding: 14px 18px;
+    background: white;
+    border-bottom: 1px solid #dfe6f0;
+}
+
+.preview-toolbar > div {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    gap: 3px;
+}
+
+.preview-toolbar strong {
+    color: #23477f;
+}
+
+.preview-toolbar span {
+    color: #77859a;
+    font-size: 12px;
+}
+
+.back-button,
+.switch-button {
+    border: 0;
+    border-radius: 8px;
+    padding: 10px 14px;
+    background: #eaf0fc;
+    color: #2859a0;
+    font-weight: bold;
+}
+
+.back-button:hover,
+.switch-button:hover {
+    background: #d8e5fb;
+}
+
+/* ===== Сайтын урьдчилан харах хэсэг ===== */
+
+.preview-stage {
+    width: 100%;
+    overflow: hidden;
+    padding: 12px;
+}
+
+.site-frame {
+    margin: 0 auto;
+    transform-origin: top left;
+    background: #f4f7fc;
+    box-shadow: 0 8px 35px #1d3b641c;
+    overflow: hidden;
+}
+
+/* ===== Сайтын Header ===== */
+
+.site-header {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 22px 24px;
+    background: linear-gradient(120deg, #315da8, #24477f);
+    color: white;
+}
+
+.brand h1 {
+    margin: 0 0 5px;
+    font-size: 27px;
+}
+
+.brand p {
+    margin: 0;
+    font-size: 14px;
+    opacity: 0.88;
+}
+
+.menu-toggle {
+    display: block;
+    align-self: flex-start;
+    border: 1px solid #ffffff55;
+    border-radius: 7px;
+    padding: 8px 12px;
+    background: #ffffff18;
+    color: white;
+    font-size: 21px;
+}
+
+.site-header nav {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.site-header nav.menu-open {
+    display: flex;
+}
+
+.site-header nav a {
+    padding: 11px 14px;
+    border-radius: 7px;
     color: white;
     text-decoration: none;
-    text-align: center;
-    padding: 10px 14px;
-    border-radius: 6px;
-    transition: background-color 0.2s;
 }
 
-nav a:hover,
-nav a:focus-visible {
-    background-color: #315da8;
-    color: #ffeb70;
+.site-header nav a:hover {
+    background: #ffffff25;
 }
 
-main {
+/* ===== Үндсэн хэсэг ===== */
+
+.site-frame main {
     width: 100%;
-    max-width: 1100px;
-    margin: 24px auto;
-    padding: 0 16px;
-}
-
-section {
-    scroll-margin-top: 20px;
-}
-
-h2 {
-    color: #315da8;
-    margin-top: 0;
+    padding: 22px 18px;
 }
 
 .intro {
-    background-color: white;
-    padding: 24px 20px;
-    border-radius: 12px;
-    margin-bottom: 32px;
-    border-left: 5px solid #315da8;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 25px 20px;
+    border-radius: 14px;
+    background: linear-gradient(120deg, #e5efff, #f4f8ff);
+}
+
+.eyebrow {
+    color: #4775bb;
+    font-size: 11px;
+    font-weight: bold;
+    letter-spacing: 1.5px;
 }
 
 .intro h2 {
-    font-size: 26px;
+    margin: 12px 0;
+    color: #234f91;
+    font-size: 30px;
 }
 
 .intro p {
-    margin-bottom: 22px;
+    max-width: 470px;
+    color: #4d607c;
+    line-height: 1.8;
 }
 
 .main-button {
     display: inline-block;
-    background-color: #315da8;
+    padding: 12px 18px;
+    border-radius: 8px;
+    background: #315da8;
     color: white;
-    text-decoration: none;
-    padding: 12px 20px;
-    border-radius: 7px;
+    font-size: 14px;
     font-weight: bold;
+    text-decoration: none;
 }
 
-.main-button:hover,
-.main-button:focus-visible {
-    background-color: #24477f;
+.main-button:hover {
+    background: #24477f;
 }
 
+.intro-art {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    min-height: 90px;
+}
 
+.intro-art span:first-child {
+    font-size: 65px;
+}
 
-#lessons {
-    margin-bottom: 32px;
+.intro-art span:last-child {
+    font-size: 48px;
+}
+
+/* ===== Хичээлийн картууд ===== */
+
+.lessons-section {
+    margin-top: 30px;
+}
+
+.lessons-section > h2 {
+    margin-bottom: 8px;
+    color: #234f91;
+    font-size: 25px;
 }
 
 .section-description {
-    color: #666;
-    margin-top: -8px;
+    margin-top: 0;
     margin-bottom: 20px;
+    color: #728098;
+    line-height: 1.7;
 }
 
 .lesson-container {
     display: grid;
-    grid-template-columns: 1fr;
-    gap: 16px;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 14px;
 }
 
 .lesson {
     min-width: 0;
-    background-color: white;
-    padding: 22px;
+    padding: 20px;
+    border: 1px solid #e5eaf2;
     border-radius: 12px;
-    border: 1px solid #e0e5ee;
-    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.04);
-    transition: transform 0.2s, box-shadow 0.2s;
-}
-
-.lesson:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+    background: white;
+    box-shadow: 0 4px 12px #213e6508;
 }
 
 .lesson-icon {
-    font-size: 32px;
-    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 46px;
+    height: 46px;
+    margin-bottom: 14px;
+    border-radius: 12px;
+    color: white;
+    font-size: 26px;
+    font-weight: bold;
+}
+
+.math {
+    background: #3474db;
+}
+
+.english {
+    background: #8c4bd1;
+}
+
+.mongolian {
+    background: #18a887;
+}
+
+.physics {
+    background: #f07832;
 }
 
 .lesson h3 {
-    color: #315da8;
     margin: 0 0 10px;
-    font-size: 21px;
+    color: #263f65;
+    font-size: 19px;
 }
 
 .lesson p {
-    margin: 0 0 18px;
+    min-height: 0;
+    margin: 0 0 16px;
+    color: #64738a;
+    font-size: 14px;
+    line-height: 1.8;
 }
 
 .lesson a {
-    display: inline-block;
-    color: #315da8;
+    color: #2863bd;
+    font-size: 14px;
     font-weight: bold;
     text-decoration: none;
 }
 
-.lesson a:hover,
-.lesson a:focus-visible {
+.lesson a:hover {
     text-decoration: underline;
 }
 
-/* ===== 7. Суралцах зөвлөгөө ===== */
+/* ===== Зөвлөгөө ===== */
 
 .about {
-    background-color: white;
-    padding: 24px 20px;
-    margin: 28px 0;
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    margin-top: 28px;
+    padding: 22px;
     border-radius: 12px;
+    background: #e5efff;
+}
+
+.about-icon {
+    font-size: 30px;
+}
+
+.about h2 {
+    margin: 0 0 8px;
+    color: #2859a0;
+    font-size: 20px;
 }
 
 .about p {
-    margin-bottom: 0;
+    margin: 0;
+    color: #586d8c;
+    line-height: 1.8;
 }
 
-/* ===== 8. Footer ===== */
+/* ===== Footer ===== */
 
-footer {
-    background-color: #24477f;
+.site-frame footer {
+    padding: 22px 16px;
+    background: #24477f;
     color: white;
     text-align: center;
-    padding: 20px 16px;
 }
 
-footer p {
-    margin: 4px 0;
-    font-size: 14px;
+.site-frame footer p {
+    margin: 5px 0;
+    font-size: 12px;
 }
 
-/* ===== 9. TABLET: 600px-аас дээш ===== */
+/* ==================================
+   TABLET MODE
+   ================================== */
 
-@media (min-width: 600px) {
+.mode-tablet .site-header {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 14px;
+}
 
-    header {
-        padding: 36px 24px;
-    }
+.mode-tablet .menu-toggle,
+.mode-desktop .menu-toggle {
+    display: none;
+}
 
-    header h1 {
-        font-size: 34px;
-    }
+.mode-tablet .site-header nav,
+.mode-desktop .site-header nav {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 8px;
+}
 
-    nav {
-        flex-direction: row;
-        justify-content: center;
-        align-items: center;
-        gap: 20px;
-        padding: 12px 16px;
-    }
+.mode-tablet .site-frame main {
+    padding: 28px;
+}
 
-    nav a {
-        padding: 10px 18px;
-    }
+.mode-tablet .intro {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 30px;
+}
 
-    main {
-        width: 92%;
-        padding: 0;
-        margin: 32px auto;
-    }
+.mode-tablet .intro-text {
+    flex: 1;
+}
 
-    .intro {
-        padding: 32px;
-    }
+.mode-tablet .intro-art {
+    flex: 0 0 170px;
+}
 
-    .lesson-container {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 20px;
-    }
+.mode-tablet .lesson-container {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+}
 
-    .about {
-        padding: 28px;
+/* ==================================
+   DESKTOP MODE
+   ================================== */
+
+.mode-desktop .site-header {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 25px 34px;
+}
+
+.mode-desktop .brand h1 {
+    font-size: 29px;
+}
+
+.mode-desktop .site-header nav {
+    justify-content: flex-end;
+}
+
+.mode-desktop .site-header nav a {
+    padding: 12px 15px;
+}
+
+.mode-desktop .site-frame main {
+    padding: 32px 34px;
+}
+
+.mode-desktop .intro {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 230px;
+    padding: 35px;
+}
+
+.mode-desktop .intro-text {
+    flex: 1;
+}
+
+.mode-desktop .intro-art {
+    flex: 0 0 250px;
+}
+
+.mode-desktop .intro-art span:first-child {
+    font-size: 85px;
+}
+
+.mode-desktop .intro-art span:last-child {
+    font-size: 65px;
+}
+
+.mode-desktop .lesson-container {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 18px;
+}
+
+.mode-desktop .lesson {
+    padding: 22px;
+}
+
+.mode-desktop .lesson p {
+    min-height: 75px;
+}
+
+.mode-desktop .about {
+    align-items: center;
+    padding: 28px;
+}
+
+/* ===== Бодит дэлгэцийн хамгаалалт ===== */
+
+@media (min-width: 650px) {
+    .device-options {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
     }
 }
 
-/* ===== 10. DESKTOP: 1024px-аас дээш ===== */
-
-@media (min-width: 1024px) {
-
-    header {
-        padding: 42px 24px;
+@media (max-width: 480px) {
+    .preview-toolbar {
+        padding: 12px;
+        gap: 8px;
     }
 
-    header h1 {
-        font-size: 38px;
+    .preview-toolbar strong {
+        font-size: 13px;
     }
 
-    main {
-        max-width: 1100px;
-        margin: 40px auto;
+    .back-button,
+    .switch-button {
+        padding: 9px;
+        font-size: 12px;
     }
 
-    .intro {
-        padding: 36px;
+    .welcome {
+        padding: 25px 16px;
     }
 
-    .lesson-container {
-        grid-template-columns: repeat(4, minmax(0, 1fr));
-        gap: 20px;
-    }
-
-    .lesson {
-        padding: 24px;
-    }
-}
-
-/* ===== 11. Жижиг гар утас ===== */
-
-@media (max-width: 360px) {
-
-    header h1 {
-        font-size: 23px;
-    }
-
-    header p {
-        font-size: 14px;
-    }
-
-    main {
-        padding: 0 12px;
-    }
-
-    .intro,
-    .lesson,
-    .about {
-        padding: 16px;
-    }
-
-    .intro h2 {
-        font-size: 22px;
+    .device-card {
+        padding: 20px 12px;
     }
 }

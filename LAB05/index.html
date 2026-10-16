@@ -1,104 +1,285 @@
-```html
 <!DOCTYPE html>
 <html lang="mn">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Миний хичээлүүд</title>
+    <title>Миний хичээлийн сайт</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <header>
-        <h1>Миний хичээлийн сайт</h1>
-        <p>10-р ангийн сурагчдад зориулав</p>
-    </header>
+    <!-- Төхөөрөмж сонгох эхлэл -->
+    <div id="welcome" class="welcome">
+        <div class="welcome-content">
+            <div class="logo">MY SCHOOL</div>
+            <h1>Миний хичээлийн сайт</h1>
+            <p>Үзэх дэлгэцийн төрлөө сонгоно уу.</p>
 
-    <nav aria-label="Үндсэн цэс">
-        <a href="#home">Нүүр</a>
-        <a href="#lessons">Хичээлүүд</a>
-        <a href="#about">Тухай</a>
-    </nav>
+            <div class="device-options">
 
-    <main id="home">
+                <button class="device-card"
+                        onclick="openSite('mobile')">
+                    <span class="device-icon">📱</span>
+                    <strong>Mobile</strong>
+                    <span>Гар утас</span>
+                    <small>320px – 599px</small>
+                </button>
 
-        <section class="intro">
-            <h2>Сайн байна уу?</h2>
-            <p>
-                Энэ сайтаас та 10-р ангийн үндсэн
-                хичээлүүдийн талаар мэдээлэл авах боломжтой.
-            </p>
-            <a class="main-button" href="#lessons">
-                Хичээлүүд үзэх
-            </a>
-        </section>
+                <button class="device-card"
+                        onclick="openSite('tablet')">
+                    <span class="device-icon">📲</span>
+                    <strong>Tablet</strong>
+                    <span>Таблет</span>
+                    <small>600px – 1023px</small>
+                </button>
 
-        <section id="lessons">
-            <h2>Миний хичээлүүд</h2>
-            <p class="section-description">
-                Өөрийн мэдлэгээ нэмэгдүүлж, шинэ зүйл сураарай.
-            </p>
-
-            <div class="lesson-container">
-
-                <article class="lesson">
-                    <div class="lesson-icon">📐</div>
-                    <h3>Математик</h3>
-                    <p>
-                        Тоо, тэгшитгэл, функц болон
-                        геометр судална.
-                    </p>
-                    <a href="#about">Дэлгэрэнгүй →</a>
-                </article>
-
-                <article class="lesson">
-                    <div class="lesson-icon">📚</div>
-                    <h3>Англи хэл</h3>
-                    <p>
-                        Англи үг, дүрэм болон ярих
-                        чадвараа хөгжүүлнэ.
-                    </p>
-                    <a href="#about">Дэлгэрэнгүй →</a>
-                </article>
-
-                <article class="lesson">
-                    <div class="lesson-icon">📝</div>
-                    <h3>Монгол хэл</h3>
-                    <p>
-                        Зөв бичих дүрэм болон
-                        найруулга сурна.
-                    </p>
-                    <a href="#about">Дэлгэрэнгүй →</a>
-                </article>
-
-                <article class="lesson">
-                    <div class="lesson-icon">⚛️</div>
-                    <h3>Физик</h3>
-                    <p>
-                        Хөдөлгөөн, хүч болон
-                        энергийн тухай судална.
-                    </p>
-                    <a href="#about">Дэлгэрэнгүй →</a>
-                </article>
+                <button class="device-card"
+                        onclick="openSite('desktop')">
+                    <span class="device-icon">🖥️</span>
+                    <strong>Desktop</strong>
+                    <span>Компьютер</span>
+                    <small>1024px ба дээш</small>
+                </button>
 
             </div>
-        </section>
 
-        <section id="about" class="about">
-            <h2>Суралцах зөвлөгөө</h2>
-            <p>
-                Өдөр бүр хичээлээ давтаж, шинэ зүйл сурч,
-                зорилгодоо тууштай хүрээрэй.
+            <p class="hint">
+                Сонголтоо дарж вэб хуудасны загварыг үзээрэй.
             </p>
-        </section>
+        </div>
+    </div>
 
-    </main>
+    <!-- Сайт харагдах хэсэг -->
+    <div id="viewer" class="viewer" hidden>
 
-    <footer>
-        <p>© 2026 Миний хичээлийн сайт</p>
-        <p>Responsive Web Design | Лабораторийн ажил 5</p>
-    </footer>
+        <div class="preview-toolbar">
+            <button class="back-button" onclick="goBack()">
+                ← Буцах
+            </button>
+
+            <div>
+                <strong id="device-title">Mobile</strong>
+                <span id="device-width"></span>
+            </div>
+
+            <button class="switch-button"
+                    onclick="goBack()">
+                Загвар солих
+            </button>
+        </div>
+
+        <div id="preview-stage" class="preview-stage">
+            <div id="site-frame" class="site-frame">
+
+                <header class="site-header">
+                    <div class="brand">
+                        <h1>Миний хичээлийн сайт</h1>
+                        <p>10-р ангийн сурагчдад зориулав</p>
+                    </div>
+
+                    <button class="menu-toggle"
+                            onclick="toggleMenu()"
+                            aria-label="Цэс нээх"
+                            aria-expanded="false">
+                        ☰
+                    </button>
+
+                    <nav id="navigation">
+                        <a href="#home" onclick="closeMenu()">Нүүр</a>
+                        <a href="#lessons" onclick="closeMenu()">Хичээлүүд</a>
+                        <a href="#about" onclick="closeMenu()">Тухай</a>
+                    </nav>
+                </header>
+
+                <main id="home">
+
+                    <section class="intro">
+                        <div class="intro-text">
+                            <span class="eyebrow">СУРАЛЦАХАД ТАВТАЙ МОРИЛ</span>
+                            <h2>Сайн байна уу?</h2>
+                            <p>
+                                Энэ сайтаас та 10-р ангийн үндсэн
+                                хичээлүүдийн талаар мэдээлэл авах боломжтой.
+                            </p>
+                            <a class="main-button" href="#lessons">
+                                Хичээлүүд үзэх →
+                            </a>
+                        </div>
+
+                        <div class="intro-art" aria-hidden="true">
+                            <span>🎓</span>
+                            <span>📚</span>
+                        </div>
+                    </section>
+
+                    <section id="lessons" class="lessons-section">
+                        <h2>Миний хичээлүүд</h2>
+                        <p class="section-description">
+                            Өөрийн мэдлэгээ нэмэгдүүлж, шинэ зүйл сураарай.
+                        </p>
+
+                        <div class="lesson-container">
+
+                            <article class="lesson">
+                                <div class="lesson-icon math">π</div>
+                                <h3>Математик</h3>
+                                <p>
+                                    Тоо, тэгшитгэл, функц болон
+                                    геометр судална.
+                                </p>
+                                <a href="#about">Дэлгэрэнгүй →</a>
+                            </article>
+
+                            <article class="lesson">
+                                <div class="lesson-icon english">📖</div>
+                                <h3>Англи хэл</h3>
+                                <p>
+                                    Англи үг, дүрэм болон ярих
+                                    чадвараа хөгжүүлнэ.
+                                </p>
+                                <a href="#about">Дэлгэрэнгүй →</a>
+                            </article>
+
+                            <article class="lesson">
+                                <div class="lesson-icon mongolian">✎</div>
+                                <h3>Монгол хэл</h3>
+                                <p>
+                                    Зөв бичих дүрэм болон
+                                    найруулга сурна.
+                                </p>
+                                <a href="#about">Дэлгэрэнгүй →</a>
+                            </article>
+
+                            <article class="lesson">
+                                <div class="lesson-icon physics">⚛</div>
+                                <h3>Физик</h3>
+                                <p>
+                                    Хөдөлгөөн, хүч болон
+                                    энергийн тухай судална.
+                                </p>
+                                <a href="#about">Дэлгэрэнгүй →</a>
+                            </article>
+
+                        </div>
+                    </section>
+
+                    <section id="about" class="about">
+                        <div class="about-icon">💡</div>
+                        <div>
+                            <h2>Суралцах зөвлөгөө</h2>
+                            <p>
+                                Өдөр бүр хичээлээ давтаж, шинэ зүйл сурч,
+                                зорилгодоо тууштай хүрээрэй.
+                            </p>
+                        </div>
+                    </section>
+
+                </main>
+
+                <footer>
+                    <p>© 2026 Миний хичээлийн сайт</p>
+                    <p>Responsive Web Design | Лабораторийн ажил 5</p>
+                </footer>
+
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const welcome = document.getElementById("welcome");
+        const viewer = document.getElementById("viewer");
+        const stage = document.getElementById("preview-stage");
+        const frame = document.getElementById("site-frame");
+
+        let currentDevice = "mobile";
+
+        const deviceSettings = {
+            mobile: {
+                title: "Mobile — Гар утас",
+                width: "375px",
+                frameWidth: 375
+            },
+            tablet: {
+                title: "Tablet — Таблет",
+                width: "768px",
+                frameWidth: 768
+            },
+            desktop: {
+                title: "Desktop — Компьютер",
+                width: "1100px",
+                frameWidth: 1100
+            }
+        };
+
+        function openSite(device) {
+            currentDevice = device;
+
+            welcome.hidden = true;
+            viewer.hidden = false;
+
+            frame.className = "site-frame mode-" + device;
+
+            document.getElementById("device-title").textContent =
+                deviceSettings[device].title;
+
+            document.getElementById("device-width").textContent =
+                deviceSettings[device].width;
+
+            closeMenu();
+            updatePreview();
+
+            window.scrollTo(0, 0);
+        }
+
+        function goBack() {
+            viewer.hidden = true;
+            welcome.hidden = false;
+            closeMenu();
+            window.scrollTo(0, 0);
+        }
+
+        function updatePreview() {
+            if (viewer.hidden) return;
+
+            const targetWidth =
+                deviceSettings[currentDevice].frameWidth;
+
+            const availableWidth = Math.max(
+                280,
+                stage.clientWidth - 24
+            );
+
+            const scale = Math.min(
+                1,
+                availableWidth / targetWidth
+            );
+
+            frame.style.width = targetWidth + "px";
+            frame.style.transform = "scale(" + scale + ")";
+
+            stage.style.height =
+                (frame.scrollHeight * scale + 12) + "px";
+        }
+
+        function toggleMenu() {
+            const nav = document.getElementById("navigation");
+            const button = document.querySelector(".menu-toggle");
+            const isOpen = nav.classList.toggle("menu-open");
+
+            button.setAttribute("aria-expanded", isOpen);
+        }
+
+        function closeMenu() {
+            const nav = document.getElementById("navigation");
+            const button = document.querySelector(".menu-toggle");
+
+            nav.classList.remove("menu-open");
+            button.setAttribute("aria-expanded", "false");
+        }
+
+        window.addEventListener("resize", updatePreview);
+        window.addEventListener("load", updatePreview);
+    </script>
 
 </body>
 </html>
-```
