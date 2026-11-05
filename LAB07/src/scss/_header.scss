@@ -1,0 +1,65 @@
+@use "mixins" as *;
+
+.header {
+  @include flex-center(row, space-between, center, 20px);
+  padding: 19px 34px;
+  border-bottom: 1px solid var(--line);
+}
+
+.logo {
+  @include flex-center(row, flex-start, center, 12px);
+  color: var(--navy);
+
+  &__mark {
+    display: grid;
+    place-items: center;
+    width: 42px;
+    height: 42px;
+    border-radius: var(--radius-medium);
+    background: #eaf1ff;
+    color: var(--blue);
+    font-size: 24px;
+  }
+
+  &__title { margin: 0; font-size: 17px; }
+  &__subtitle { color: var(--muted); }
+}
+
+.navigation {
+  display: flex;
+  gap: 8px;
+
+  a {
+    padding: 9px 12px;
+    border-radius: var(--radius-small);
+    color: #536681;
+    font-size: 13px;
+    font-weight: 800;
+    text-decoration: none;
+
+    &:hover {
+      color: var(--blue);
+      background: #f0f5ff;
+    }
+  }
+}
+
+.header-actions { display: flex; gap: 10px; }
+
+.theme-button {
+  padding: 9px 13px;
+  border: 0;
+  border-radius: 10px;
+  background: var(--navy);
+  color: contrast(#17345f);
+  font-weight: 800;
+}
+
+.menu-toggle {
+  display: none;
+  padding: 9px 12px;
+  border: 0;
+  border-radius: var(--radius-small);
+  background: #edf3ff;
+  font-size: 20px;
+}

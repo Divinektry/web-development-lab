@@ -1,0 +1,33 @@
+@use "mixins" as *;
+
+.tip-section {
+  @include flex-center(row, flex-start, center, 18px);
+  margin-top: 38px;
+  padding: 24px 28px;
+  border: 1px solid #e5edfb;
+  border-radius: var(--radius-large);
+  background: #f1f6ff;
+
+  h2 {
+    margin: 5px 0 0;
+    color: var(--navy);
+    font-size: 20px;
+  }
+
+  p {
+    color: #687b98;
+    font-size: 13px;
+    line-height: 1.7;
+  }
+}
+
+.tip-icon {
+  display: grid;
+  place-items: center;
+  width: 55px;
+  height: 55px;
+  flex: 0 0 55px;
+  border-radius: 16px;
+  background: #fff;
+  font-size: 27px;
+}

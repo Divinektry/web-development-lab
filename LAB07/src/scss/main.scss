@@ -1,0 +1,61 @@
+@use "tokens";
+@use "mixins" as *;
+
+@use "base";
+@use "header";
+@use "hero";
+@use "lessons";
+@use "tips";
+@use "media";
+@use "footer";
+@use "dark";
+@use "utilities";
+
+@include respond(tablet) {
+  .lesson-grid { grid-template-columns: repeat(2, 1fr); }
+
+  .header { flex-wrap: wrap; }
+
+  .navigation {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+@include respond(mobile) {
+  .site-frame {
+    width: 100%;
+    margin: 0;
+    border-radius: 0;
+  }
+
+  .header { padding: 15px; }
+
+  .menu-toggle { display: block; }
+
+  .navigation {
+    display: none;
+    flex-direction: column;
+    align-items: stretch;
+
+    &.menu-open { display: flex; }
+  }
+
+  main { padding: 17px; }
+
+  .hero {
+    min-height: 0;
+    padding: 25px 20px;
+
+    h1 { font-size: 32px; }
+    &__art { display: none; }
+  }
+
+  .section-heading { display: block; }
+
+  .lesson-grid, .media-grid { grid-template-columns: 1fr; }
+
+  .lesson { height: 350px; }
+
+  .tip-section { padding: 18px; }
+}

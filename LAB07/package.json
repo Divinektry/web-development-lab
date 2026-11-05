@@ -1,0 +1,12 @@
+{
+  "name": "lab7-sass-refactor",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "sass:build": "sass src/scss/main.scss style.css --style=compressed",
+    "sass:watch": "sass --watch src/scss/main.scss:style.css"
+  },
+  "devDependencies": {
+    "sass": "^1.83.0"
+  }
+}

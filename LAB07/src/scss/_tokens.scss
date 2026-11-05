@@ -1,0 +1,48 @@
+@use "sass:map";
+@use "sass:color";
+
+$colors: (
+  navy: #17345f,
+  blue: #3268c8,
+  ink: #172b4d,
+  muted: #71809a,
+  surface: #ffffff,
+  page: #f3f6fc,
+  line: #e3eaf5
+);
+
+$radii: (
+  small: 9px,
+  medium: 13px,
+  large: 17px,
+  extra: 22px
+);
+
+$breakpoints: (
+  tablet: 850px,
+  mobile: 600px
+);
+
+:root {
+  @each $name, $value in $colors {
+    --#{$name}: #{$value};
+  }
+
+  @each $name, $value in $radii {
+    --radius-#{$name}: #{$value};
+  }
+}
+
+// px утгыг rem болгон хөрвүүлнэ. Жишээ: rem(16px) = 1rem.
+@function rem($value) {
+  @return ($value / 16px) * 1rem;
+}
+
+// Өнгөний гэрэлтэлтийг шалгаж, уншихад тохирох текстийн өнгө буцаана.
+@function contrast($background) {
+  @if (color.lightness($background) > 55%) {
+    @return #172b4d;
+  } @else {
+    @return #ffffff;
+  }
+}
