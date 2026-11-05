@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="mn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Миний хичээлийн сайт</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+
+<div class="site-frame">
+
+    <header>
+        <div class="logo">
+            <span>✦</span>
+            <div>
+                <h2>Миний хичээлийн сайт</h2>
+                <small>Мэдлэгт хүрэх миний орон зай</small>
+            </div>
+        </div>
+
+        <nav id="navigation">
+            <a href="#home">Нүүр</a>
+            <a href="#lessons">Хичээлүүд</a>
+            <a href="#about">Зөвлөгөө</a>
+            <a href="#multimedia">Зураг, видео</a>
+        </nav>
+
+        <div class="header-actions">
+            <button class="theme-button" onclick="toggleTheme()">🌙 Dark mode</button>
+            <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+        </div>
+    </header>
+
+    <main>
+
+        <!-- Нүүр хэсэг -->
+        <section id="home" class="hero">
+            <div class="hero-copy">
+                <span class="eyebrow">СУРАЛЦАХАД ТАВТАЙ МОРИЛ</span>
+
+                <h1>Сайн байна уу?</h1>
+
+                <p>
+                    Энэ сайтаас хичээлүүдийнхээ талаар мэдээлэл авч,
+                    сонирхолтой зүйлсийг сурч мэдээрэй.
+                </p>
+
+                <a href="#lessons" class="primary-button">
+                    Хичээлүүд үзэх →
+                </a>
+            </div>
+
+            <div class="hero-art">
+                <div class="art-circle">🎓</div>
+                <div class="art-note">📚<br><small>LEARN EVERY DAY</small></div>
+            </div>
+        </section>
+
+
+        <!-- Хичээлүүд -->
+        <section id="lessons" class="section">
+
+            <div class="section-heading">
+                <div>
+                    <span class="eyebrow">МИНИЙ СУРАЛЦАХ ХӨТӨЛБӨР</span>
+                    <h2>Миний хичээлүүд</h2>
+                </div>
+
+                <p>Карт дээр дарж дэлгэрэнгүй мэдээллийг үзээрэй.</p>
+            </div>
+
+            <div class="lesson-grid">
+
+                <article class="lesson" onclick="flipCard(this)" tabindex="0"
+                    onkeydown="cardKey(event,this)">
+                    <div class="lesson-inner">
+
+                        <div class="lesson-front">
+                            <img src="https://images.unsplash.com/photo-1509228468518-180dd4864904?auto=format&fit=crop&w=700&q=85" alt="Математик">
+
+                            <span class="subject-tag blue">ҮНДСЭН ХИЧЭЭЛ</span>
+                            <h3>Математик</h3>
+                            <p>Тоо, томьёо, бодлого бодож сурцгаая.</p>
+                            <span class="card-more">Дэлгэрэнгүй ↗</span>
+                        </div>
+
+                        <div class="lesson-back">
+                            <span class="back-icon">∑</span>
+                            <h3>Математик</h3>
+                            <p>Логик сэтгэлгээгээ хөгжүүлж, бодлого бодох чадвараа өдөр бүр сайжруулаарай.</p>
+                            <span class="card-more">Буцах ↩</span>
+                        </div>
+
+                    </div>
+                </article>
+
+
+                <article class="lesson" onclick="flipCard(this)" tabindex="0"
+                    onkeydown="cardKey(event,this)">
+                    <div class="lesson-inner">
+
+                        <div class="lesson-front">
+                            <img src="https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=700&q=85" alt="Монгол хэл">
+
+                            <span class="subject-tag green">ҮНДСЭН ХИЧЭЭЛ</span>
+                            <h3>Монгол хэл</h3>
+                            <p>Эх хэл, зөв бичих дүрэм, найруулгаа сайжруулъя.</p>
+                            <span class="card-more">Дэлгэрэнгүй ↗</span>
+                        </div>
+
+                        <div class="lesson-back">
+                            <span class="back-icon">文</span>
+                            <h3>Монгол хэл</h3>
+                            <p>Унших, бичих, найруулах чадвараа хөгжүүлж, эх хэлнийхээ баялгийг танин мэдээрэй.</p>
+                            <span class="card-more">Буцах ↩</span>
+                        </div>
+
+                    </div>
+                </article>
+
+
+                <article class="lesson" onclick="flipCard(this)" tabindex="0"
+                    onkeydown="cardKey(event,this)">
+                    <div class="lesson-inner">
+
+                        <div class="lesson-front">
+                            <img src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&w=700&q=85" alt="Англи хэл">
+
+                            <span class="subject-tag purple">ҮНДСЭН ХИЧЭЭЛ</span>
+                            <h3>Англи хэл</h3>
+                            <p>Шинэ үг сурч, англиар ярьж сурцгаая.</p>
+                            <span class="card-more">Дэлгэрэнгүй ↗</span>
+                        </div>
+
+                        <div class="lesson-back">
+                            <span class="back-icon">ABC</span>
+                            <h3>Англи хэл</h3>
+                            <p>Өдөр бүр үг цээжилж, сонсох болон ярих чадвараа хөгжүүлээрэй.</p>
+                            <span class="card-more">Буцах ↩</span>
+                        </div>
+
+                    </div>
+                </article>
+
+
+                <article class="lesson" onclick="flipCard(this)" tabindex="0"
+                    onkeydown="cardKey(event,this)">
+                    <div class="lesson-inner">
+
+                        <div class="lesson-front">
+                            <img src="https://images.unsplash.com/photo-1636466497217-26a8cbeaf0aa?auto=format&fit=crop&w=700&q=85" alt="Физик">
+
+                            <span class="subject-tag orange">ҮНДСЭН ХИЧЭЭЛ</span>
+                            <h3>Физик</h3>
+                            <p>Хөдөлгөөн, хүч болон энергийн тухай судална.</p>
+                            <span class="card-more">Дэлгэрэнгүй ↗</span>
+                        </div>
+
+                        <div class="lesson-back">
+                            <span class="back-icon">⚛</span>
+                            <h3>Физик</h3>
+                            <p>Байгалийн үзэгдлийг ажиглаж, туршилт болон тооцоогоор ойлгож сураарай.</p>
+                            <span class="card-more">Буцах ↩</span>
+                        </div>
+
+                    </div>
+                </article>
+
+            </div>
+        </section>
+
+
+        <!-- Зөвлөгөө -->
+        <section id="about" class="tip-section">
+
+            <div class="tip-icon">💡</div>
+
+            <div>
+                <span class="eyebrow">БЯЦХАН ЗӨВЛӨГӨӨ</span>
+                <h2>Суралцах зөвлөгөө</h2>
+                <p>
+                    Өдөр бүр бага багаар хичээлээ давтаж,
+                    шинэ зүйл сурч, зорилгодоо тууштай хүрээрэй.
+                </p>
+            </div>
+
+        </section>
+
+
+        <!-- Зураг болон видео -->
+        <section id="multimedia" class="section">
+
+            <div class="section-heading">
+                <div>
+                    <span class="eyebrow">НЭМЭЛТ МЭДЭЭЛЭЛ</span>
+                    <h2>Миний зураг болон видео</h2>
+                </div>
+            </div>
+
+            <div class="media-grid">
+
+                <div class="media-card">
+                    <h3>Миний зураг</h3>
+
+                    <img
+                        class="profile-photo"
+                        src="myphoto.jpg"
+                        alt="Миний зураг">
+                </div>
+
+
+                <div class="media-card">
+                    <h3>Миний YouTube видео</h3>
+
+                    <div class="video-container">
+                        <iframe
+                            src="https://www.youtube.com/embed/2LIBHDB3LZk"
+                            title="Миний YouTube видео"
+                            allowfullscreen>
+                        </iframe>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <b>✦ Миний хичээлийн сайт</b>
+        <p>Мэдлэг бол ирээдүйн түлхүүр.</p>
+    </footer>
+
+</div>
+
+</body>
+</html>
